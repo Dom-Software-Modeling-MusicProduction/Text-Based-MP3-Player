@@ -8,7 +8,7 @@ This program incorporated classes  (both private and public), pass-by-value and 
 
 # How It Works
 
-Upon executing this program, the user will be presented with a list of options (1 through 10) that present different options for viewing or managing their local tracks. There is a fixed number of tracks that the user can select from, but the main focus of this project was to show basic management of input from multiple files using classes and vectors in C++.
+Upon executing this program, the user will be presented with a list of options (1 through 5) that present different options for viewing or managing their local tracks. There is a fixed number of tracks that the user can select from, but the main focus of this project was to show basic management of input from multiple files using classes and vectors in C++.
 
 # Execution
 
