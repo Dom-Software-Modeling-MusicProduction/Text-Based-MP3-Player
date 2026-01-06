@@ -480,13 +480,7 @@ int main() {
     //Create a vector of MP3s called musicCollection
     vector<MP3> musicCollection;
     cout<< "\n" << endl;
-    // Open files mp3_1.txt to mp3_9.txt
-    for (int i = 1; i <= 9; ++i) {
-        string filename = "mp3_" + to_string(i) + ".txt";
-        //Call addTrackFromFile(musicCollection, filename);
-        addTrackFromFile(musicCollection, filename);
-    }
-
+   
     // call displayMenu(musicCollection);
     displayMenu(musicCollection);
 
