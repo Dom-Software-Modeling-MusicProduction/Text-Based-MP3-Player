@@ -39,7 +39,7 @@ public:
     int year;
     string lyrics;
     
-    //TODO: Create a constructor that takes 5 parameters and assigns them to the 5 variables
+    //Create a constructor that takes 5 parameters and assigns them to the 5 variables
     MP3(string newTitle, string newArtist, string newAlbum, int newYear, string newLyrics) : title(newTitle), artist(newArtist), album(newAlbum), year(newYear), lyrics(newLyrics) {}
     
     /**
@@ -48,7 +48,7 @@ public:
      * The default constructor initializes the MP3 track with an empty title,
      * artist, album, and lyrics. The year is set to 0.
      */
-    //TODO: Create this constructor
+    //Create this constructor
     MP3() : title(""), artist(""), album(""), year(0), lyrics("") {}
     
     /**
@@ -95,7 +95,7 @@ private:
  * Displays the details of the MP3 object aside from lyrics.
  */
 void MP3::displayDetails() {
-    //TODO: Complete this function
+    // Complete this function
     cout << "  Track Title: " << title << endl;
     cout << "  Artist: " << artist << endl;
     cout << "  Album: " << album << endl;
@@ -106,7 +106,7 @@ void MP3::displayDetails() {
  * Prints the lyrics of the MP3 song.
  */
 void MP3::printLyrics() {
-    //TODO: Complete this function
+    
     cout << "Lyrics" << endl;
     cout << lyrics << endl;
 }
@@ -116,7 +116,7 @@ void MP3::printLyrics() {
  * If the song is already playing, it displays a message indicating that it is already playing.
  */
 void MP3::play() {
-    //TODO: Complete this function
+    
     if (isPlaying) {
         cout << "Track '" << title << "' by " << artist << " is playing." << endl;
     } 
@@ -133,7 +133,7 @@ void MP3::play() {
  * If the song is already stopped, it displays a message indicating that it is already stopped.
  */
 void MP3::stop() {
-    //TODO: Complete this function
+   
     if (!isPlaying) {
         cout << "Track '" << title << "' by " << artist << " is stopped." << endl;
     } else {
@@ -157,21 +157,21 @@ void MP3::stop() {
 void addTrackFromFile(vector<MP3>& musicCollection, const string& filename="") {
     string actualFilename = filename;
 
-    //TODO: Get the filename from the user if it isn't already a parameter
+    
     if (actualFilename.empty()) {
         cout << "Enter the filename: ";
         cin.ignore(std::numeric_limits<streamsize>::max(), '\n'); // Clear buffer before getting filename - taken from github (https://gist.github.com/DerexScript/d4220fdd40203978f8ba80c0010fa970)
         getline(cin, actualFilename);
     }
 
-    //TODO: Open the file for reading. Report an error if it doesn't open
+    // Open the file for reading. Report an error if it doesn't open
     ifstream inputFile(actualFilename);
     if (!inputFile.is_open()) {
         cout << " Error: Could not open file '" << actualFilename << "'" << endl;
         return;
     }
 
-    // TODO: Read and store title, artist, and album from the file
+    // Read and store title, artist, and album from the file
     string title, artist, album, line;
     int year = 0;
     string lyrics;
@@ -185,7 +185,7 @@ void addTrackFromFile(vector<MP3>& musicCollection, const string& filename="") {
         return;
     }
 
-    // TODO: Read and store year from the file
+    // Read and store year from the file
     if (!(inputFile >> year)) {
         cout << " Error: Could not read year from file '" << actualFilename << "'" << endl;
         inputFile.close();
@@ -195,7 +195,7 @@ void addTrackFromFile(vector<MP3>& musicCollection, const string& filename="") {
     inputFile.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 
-    // TODO: Read and store lyrics from the file
+    // Read and store lyrics from the file
     // Read the rest of the file into the lyrics string
     while (getline(inputFile, line)) {
         lyrics += line + "\n";
@@ -206,13 +206,13 @@ void addTrackFromFile(vector<MP3>& musicCollection, const string& filename="") {
         lyrics.pop_back();
     }
 
-    //TODO: Create an MP3 track and give it the stored values
+    // Create an MP3 track and give it the stored values
     MP3 newTrack(title, artist, album, year, lyrics);
 
-    //TODO: Put the track into the musicCollection
+    // Put the track into the musicCollection
     musicCollection.push_back(newTrack);
 
-    //TODO: Close the file and report success
+    //Close the file and report success
     inputFile.close();
     cout << " Success: Added track '" << title << "' from file '" << actualFilename << "'." << endl;
 }
@@ -284,7 +284,7 @@ void searchByLyrics(vector<MP3>& musicCollection, string& lyrics) {
  * @param musicCollection The vector representing the music collection.
  */
 void displayTracks(vector<MP3>& musicCollection) {
-    //TODO: Complete this function
+    
     cout << "\nCurrent Music Collection (" << musicCollection.size() << " tracks):" << endl;
     if (musicCollection.empty()) {
         cout << "The collection is empty." << endl;
@@ -477,17 +477,17 @@ void displayMenu(vector<MP3>& musicCollection) {
 }
 
 int main() {
-    //TODO: Create a vector of MP3s called musicCollection
+    //Create a vector of MP3s called musicCollection
     vector<MP3> musicCollection;
     cout<< "\n" << endl;
     // Open files mp3_1.txt to mp3_9.txt
     for (int i = 1; i <= 9; ++i) {
         string filename = "mp3_" + to_string(i) + ".txt";
-        //TODO: Call addTrackFromFile(musicCollection, filename);
+        //Call addTrackFromFile(musicCollection, filename);
         addTrackFromFile(musicCollection, filename);
     }
 
-    //TODO: call displayMenu(musicCollection);
+    // call displayMenu(musicCollection);
     displayMenu(musicCollection);
 
     return 0;
