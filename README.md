@@ -12,7 +12,7 @@ Upon executing this program, the user will be presented with a list of options (
 
 # Execution
 
-Since the main program is a C++ file (named lab11.cpp), use g++ to execute it, and remember the names of the other MP3 files (should be MP3_T1, MP3_T2, MP3_T3...) so that they can be added via option 1 in the console terminal.
+Since the main program is a C++ file (named lab11.cpp), use g++ to execute it, and remember the names of the other MP3 files (should be Track1, Track2, Track3 etc.) so that they can be added via option 1 in the console terminal.
 
 # Purpose
 
